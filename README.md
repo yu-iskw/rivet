@@ -1,8 +1,8 @@
-# {{ project_name }}
+# Rivet
 
-{{ project_description }}
-
-Production-ready Rust workspace template built around Cargo, Trunk, and GitHub Actions.
+Rivet is an AI-agent-native code complexity analyzer for Rust and other languages.
+It provides a pure Rust analysis core, a CLI, protocol integrations, and binding/plugin
+surfaces that can be expanded over time.
 
 ## AI Assistants
 
@@ -19,14 +19,25 @@ Production-ready Rust workspace template built around Cargo, Trunk, and GitHub A
 .
 ├── Cargo.toml
 ├── crates/
-│   ├── workspace-cli/
-│   └── workspace-core/
+│   ├── rivet-cli/
+│   ├── rivet-core/
+│   ├── rivet-lsp/
+│   ├── rivet-mcp/
+│   ├── rivet-node/
+│   ├── rivet-plugin-sdk/
+│   └── rivet-python/
+├── queries/
 ├── dev/
 └── .github/workflows/
 ```
 
-- `crates/workspace-core`: example library crate for shared domain logic
-- `crates/workspace-cli`: example binary crate depending on `workspace-core`
+- `crates/rivet-core`: pure analysis library
+- `crates/rivet-cli`: command line interface
+- `crates/rivet-mcp`: MCP integration surface
+- `crates/rivet-lsp`: LSP integration surface
+- `crates/rivet-python`: Python bindings scaffold
+- `crates/rivet-node`: Node bindings scaffold
+- `crates/rivet-plugin-sdk`: plugin authoring scaffold
 - `[workspace.dependencies]`: central place for shared dependency versions
 - `[workspace.lints.clippy]`: workspace-wide Clippy policy and AI guardrails
 
@@ -49,10 +60,7 @@ make build      # Build release artifacts for every member
 make codeql     # Run local CodeQL analysis
 ```
 
-## Bootstrap Flow
+## Current Status
 
-Use `.claude/skills/initialize-project/SKILL.md` to rename the template safely:
-
-- update the root workspace metadata
-- rename `workspace-core` and `workspace-cli`
-- update inter-crate dependency names and README placeholders
+The repository is being transformed from the workspace template into the Rivet
+workspace described in [docs/core/system_design.md](./docs/core/system_design.md).

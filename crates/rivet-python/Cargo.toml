@@ -1,0 +1,21 @@
+[package]
+name = "rivet-python"
+version = "0.1.0"
+description = "Python binding scaffold for Rivet."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../../README.md"
+keywords = ["complexity", "analysis", "python"]
+categories = ["development-tools"]
+
+[dependencies]
+rivet-core = { path = "../rivet-core" }
+
+[lib]
+name = "rivet_python"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

@@ -1,0 +1,28 @@
+[package]
+name = "rivet-cli"
+version = "0.1.0"
+description = "Command line interface for Rivet."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../../README.md"
+keywords = ["complexity", "analysis", "cli"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+ignore.workspace = true
+serde.workspace = true
+toml.workspace = true
+rivet-core = { path = "../rivet-core" }
+rivet-lsp = { path = "../rivet-lsp" }
+rivet-mcp = { path = "../rivet-mcp" }
+
+[[bin]]
+name = "rivet"
+path = "src/main.rs"
+
+[lints]
+workspace = true

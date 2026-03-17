@@ -1,0 +1,27 @@
+[package]
+name = "rivet-mcp"
+version = "0.1.0"
+description = "MCP surface scaffold for Rivet."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../../README.md"
+keywords = ["complexity", "analysis", "mcp"]
+categories = ["development-tools"]
+
+[dependencies]
+anyhow.workspace = true
+serde_json.workspace = true
+rivet-core = { path = "../rivet-core" }
+
+[lib]
+name = "rivet_mcp"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rivet-mcp"
+path = "src/main.rs"
+
+[lints]
+workspace = true

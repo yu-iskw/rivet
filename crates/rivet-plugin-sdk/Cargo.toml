@@ -1,0 +1,21 @@
+[package]
+name = "rivet-plugin-sdk"
+version = "0.1.0"
+description = "Plugin contract types for Rivet."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../../README.md"
+keywords = ["complexity", "analysis", "plugins"]
+categories = ["development-tools"]
+
+[dependencies]
+serde.workspace = true
+
+[lib]
+name = "rivet_plugin_sdk"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

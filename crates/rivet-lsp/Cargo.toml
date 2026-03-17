@@ -1,0 +1,26 @@
+[package]
+name = "rivet-lsp"
+version = "0.1.0"
+description = "LSP surface scaffold for Rivet."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../../README.md"
+keywords = ["complexity", "analysis", "lsp"]
+categories = ["development-tools"]
+
+[dependencies]
+anyhow.workspace = true
+rivet-core = { path = "../rivet-core" }
+
+[lib]
+name = "rivet_lsp"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rivet-lsp"
+path = "src/main.rs"
+
+[lints]
+workspace = true
