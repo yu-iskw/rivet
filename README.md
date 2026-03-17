@@ -35,7 +35,7 @@ Production-ready Rust workspace template built around Cargo, Trunk, and GitHub A
 - `cargo fmt --all --check` for formatting
 - `cargo clippy --workspace --all-targets --all-features -- -D warnings`
 - `cargo test --workspace --all-features`
-- GitHub CodeQL analysis for Rust projects via the `cpp` workflow configuration
+- GitHub CodeQL analysis for Rust projects via the `rust` workflow configuration
 - Clippy cognitive complexity threshold capped at `10`
 
 ## Development
