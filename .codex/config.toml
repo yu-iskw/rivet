@@ -1,0 +1,21 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+project_root_markers = [".git", "Cargo.toml", "AGENTS.md"]
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = ["/Users/yu/local/src/github/rivet", "/tmp"]
+
+[profiles.deep]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+
+[profiles.fast]
+model = "gpt-5.3-codex-spark"
+model_reasoning_effort = "low"
+
+[agents]
+max_threads = 6
+max_depth = 2

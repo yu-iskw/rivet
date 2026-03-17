@@ -28,7 +28,8 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: cpp
+          languages: rust
+          build-mode: none
           queries: security-and-quality
 
       - name: Build workspace
@@ -37,4 +38,4 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: /language:cpp
+          category: /language:rust
