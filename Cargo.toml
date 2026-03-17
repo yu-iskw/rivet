@@ -6,10 +6,30 @@ resolver = "3"
 edition = "2024"
 license = "Apache-2.0"
 authors = ["yu-iskw"]
-repository = "https://github.com/yu-iskw/rust-projet-template"
+repository = "https://github.com/yu-iskw/rivet"
 
 [workspace.dependencies]
-clap = { version = "4.5.53", features = ["derive"] }
+# CLI
+clap = { version = "4.5", features = ["derive"] }
+
+# Core
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tree-sitter = "0.25"
+tree-sitter-rust = "0.23"
+tree-sitter-python = "0.23"
+
+# Parallelism / IO
+rayon = "1"
+walkdir = "2"
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

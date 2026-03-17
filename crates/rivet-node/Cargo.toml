@@ -1,0 +1,20 @@
+[package]
+name = "rivet-node"
+version = "0.1.0"
+description = "Node.js bindings for the Rivet code complexity analyzer."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "rivet_node"
+crate-type = ["cdylib"]
+
+[dependencies]
+rivet-core = { path = "../rivet-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[lints]
+workspace = true

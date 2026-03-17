@@ -1,0 +1,27 @@
+[package]
+name = "rivet-lsp"
+version = "0.1.0"
+description = "LSP server for the Rivet code complexity analyzer."
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "rivet_lsp"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rivet-lsp"
+path = "src/main.rs"
+
+[dependencies]
+rivet-core = { path = "../rivet-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[lints]
+workspace = true

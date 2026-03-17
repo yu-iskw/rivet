@@ -1,0 +1,1 @@
+//! LSP server for Rivet.
