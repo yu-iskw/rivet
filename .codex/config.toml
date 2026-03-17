@@ -15,3 +15,7 @@ model_reasoning_effort = "high"
 [profiles.fast]
 model = "gpt-5.3-codex-spark"
 model_reasoning_effort = "low"
+
+[agents]
+max_threads = 6
+max_depth = 2
