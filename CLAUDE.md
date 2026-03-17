@@ -5,6 +5,7 @@
 This repository is a production-ready Rust workspace template.
 
 Codex-specific project guidance lives in `AGENTS.md`. Keep Claude-only workflow details here and under `.claude/`.
+Codex sandbox defaults for this repository are checked in at `.codex/config.toml`.
 
 - **Build System**: Cargo workspace
 - **Linting/Formatting**: Clippy, rustfmt, and Trunk
@@ -40,18 +41,29 @@ workspace = true
 
 ## Testing
 
-- Add crate-local unit tests near the code they cover.
-- Add integration tests under `crates/<crate-name>/tests/` when testing public behavior across modules.
-- Run `make lint && make test` before committing.
-- Use `cargo run -p workspace-cli` to verify the example binary path stays healthy.
+- **Unit Tests**: Place in the same file as the code or in a `tests` module within the crate.
+- **Snapshot Tests**: Use `insta` for large structured outputs (JSON, SARIF) or complex AST queries.
+- **Integration Tests**: Place under `crates/<crate-name>/tests/`.
+- **Benchmark**: Use `criterion` for performance-critical analysis paths.
+- **Command**: `cargo test --workspace`
 
 ## Architecture
 
-- Root `Cargo.toml` defines the workspace and shared dependency versions.
-- `crates/workspace-core` is the reusable library crate placeholder.
-- `crates/workspace-cli` is the application crate placeholder.
-- `dev/` holds helper scripts for local setup, lint, build, test, and CodeQL flows.
-- `.claude/skills/initialize-project/SKILL.md` owns bootstrap-time renaming.
+- **Root `Cargo.toml`**: Defines the workspace and shared dependency versions.
+- **`crates/rivet-core`**: Pure Rust library. No IO, no async, no CLI dependencies. Core entry points take `&[u8]` and return structured results.
+- **`crates/rivet-cli`**: Primary CLI application (clap v4). Owns filesystem IO and output formatting.
+- **`crates/rivet-mcp`**: Model Context Protocol server (rmcp). Enables AI agent integration.
+- **`crates/rivet-lsp`**: Language Server Protocol server (tower-lsp-server). Real-time IDE integration.
+- **`crates/rivet-python` & `crates/rivet-node`**: Native bindings (PyO3, napi-rs).
+- **`queries/`**: Tree-sitter query files (`.scm`) for language-specific pattern matching.
+- **`dev/`**: Helper scripts for setup, lint, build, test, and CodeQL flows.
+
+## Core Philosophy: Functional Core, Imperative Shell
+
+1. **`rivet-core` is pure**: It handles parsing (via tree-sitter) and metric computation. It must never perform filesystem IO or network requests.
+2. **Consumers own IO**: The CLI, MCP, and LSP servers are responsible for reading files, managing concurrency (rayon/tokio), and handling transport.
+3. **Declarative Languages**: Add support for new languages by adding Tree-sitter queries in `queries/<lang>/*.scm`, not by adding Rust code.
+4. **WASM Plugins**: Use Extism for safe, language-agnostic extensibility.
 
 ## Common Gotchas
 
@@ -74,7 +86,9 @@ workspace = true
 - `manage-changelog`: maintain changelog fragments when enabled
 - `.claude/skills` remains the canonical skill source even when other agents consume the mirrored tree under `.agents/skills`
 
-## Self-Improvement
+## Self-Improvement & Autonomy
 
-- Add or refine Claude rules here when recurring Rust-specific mistakes appear.
-- Prefer reusable skills under `.claude/skills/` for workflows that should survive across projects.
+- **Proactive Documentation**: Claude is authorized to autonomously refine project rules, `CLAUDE.md`, and `AGENTS.md` when new patterns, conventions, or improvements are identified.
+- **Autonomous ADRs**: When making significant architectural decisions or choosing between technical approaches, Claude should proactively use the `manage-adr` skill to document the "why". Do not wait for user prompts to record finalized designs.
+- **Skill Evolution**: Prefer contributing to or refining reusable skills under `.claude/skills/` to ensure process improvements survive across sessions.
+- **Refinement Loop**: Add or refine rules in this file whenever recurring mistakes or sub-optimal patterns are observed.

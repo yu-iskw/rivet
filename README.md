@@ -7,6 +7,9 @@ Production-ready Rust workspace template built around Cargo, Trunk, and GitHub A
 ## AI Assistants
 
 - Codex should use [AGENTS.md](./AGENTS.md) for repo-specific instructions and verification expectations.
+- Codex sandbox defaults are checked in at `.codex/config.toml` so trusted clones share the same project baseline.
+- Local Codex settings may still override or extend user behavior, but this repository config is the intended default for work in this repo.
+- Use `AGENTS.md` and `.codex/config.toml` together as the source of truth for Codex-specific behavior.
 - Claude-specific workflow details remain in `CLAUDE.md` and `.claude/`.
 - Shared reusable skills are authored in `.claude/skills` and exposed to other agents through the symlink mirror in `.agents/skills`.
 
