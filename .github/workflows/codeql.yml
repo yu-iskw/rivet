@@ -29,6 +29,7 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: rust
+          build-mode: manual
           queries: security-and-quality
 
       - name: Build workspace
