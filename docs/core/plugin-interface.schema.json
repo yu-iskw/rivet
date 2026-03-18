@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yu-iskw/rivet/docs/core/plugin-interface.schema.json",
+  "title": "Rivet Plugin Interface",
+  "type": "object",
+  "required": [
+    "source",
+    "function_name",
+    "language",
+    "sexp",
+    "start_line",
+    "end_line"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Original function source text."
+    },
+    "function_name": {
+      "type": "string",
+      "description": "Function or method name."
+    },
+    "language": {
+      "type": "string",
+      "description": "Rivet language identifier."
+    },
+    "sexp": {
+      "type": "string",
+      "description": "Tree-sitter S-expression for the function node."
+    },
+    "start_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "end_line": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "metricValue": {
+      "description": "A plugin metric value.",
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/metricValue"
+          }
+        }
+      ]
+    },
+    "analyzeOutput": {
+      "type": "object",
+      "required": ["metric_id", "display_name", "value"],
+      "properties": {
+        "metric_id": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/metricValue"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

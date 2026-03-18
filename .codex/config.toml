@@ -13,7 +13,7 @@ model = "gpt-5.4"
 model_reasoning_effort = "high"
 
 [profiles.fast]
-model = "gpt-5.3-codex-spark"
+model = "gpt-5.4-mini"
 model_reasoning_effort = "low"
 
 [agents]

@@ -17,6 +17,7 @@ pub struct FileAnalysis {
     pub language: Language,
     pub file_metrics: FileMetrics,
     pub functions: Vec<FunctionAnalysis>,
+    pub plugin_diagnostics: Vec<PluginDiagnostic>,
     pub parse_errors: Vec<ParseError>,
     pub analysis_duration: Duration,
 }
@@ -34,6 +35,7 @@ pub struct FileMetrics {
     pub max_complexity: f64,
     pub maintainability_index: f64,
     pub halstead: HalsteadMetrics,
+    pub custom_metrics: HashMap<String, MetricValue>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -51,6 +53,7 @@ pub struct FunctionAnalysis {
     pub nloc: u32,
     pub halstead: HalsteadMetrics,
     pub nesting_depth: u32,
+    pub custom_metrics: HashMap<String, MetricValue>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
@@ -85,6 +88,23 @@ pub struct ProjectSummary {
     pub avg_cognitive: f64,
     pub avg_maintainability_index: f64,
     pub languages: HashMap<Language, LanguageSummary>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[serde(untagged)]
+pub enum MetricValue {
+    Integer(i64),
+    Float(f64),
+    Composite(HashMap<String, Self>),
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct PluginDiagnostic {
+    pub plugin_name: String,
+    pub function_name: Option<String>,
+    pub metric_name: Option<String>,
+    pub message: String,
+    pub severity: Severity,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
@@ -130,6 +150,10 @@ impl Default for Thresholds {
 pub struct ThresholdViolation {
     pub file_path: Option<PathBuf>,
     pub function_name: String,
+    pub start_line: Option<u32>,
+    pub start_column: Option<u32>,
+    pub end_line: Option<u32>,
+    pub end_column: Option<u32>,
     pub metric_name: String,
     pub actual_value: f64,
     pub threshold_value: f64,

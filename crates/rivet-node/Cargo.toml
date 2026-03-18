@@ -11,11 +11,19 @@ keywords = ["complexity", "analysis", "node"]
 categories = ["development-tools"]
 
 [dependencies]
+napi = { workspace = true, features = ["async", "serde-json"] }
+napi-derive.workspace = true
+serde_json.workspace = true
 rivet-core = { path = "../rivet-core" }
+rivet-runtime = { path = "../rivet-runtime" }
+
+[build-dependencies]
+napi-build.workspace = true
 
 [lib]
 name = "rivet_node"
 path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
 
 [lints]
 workspace = true

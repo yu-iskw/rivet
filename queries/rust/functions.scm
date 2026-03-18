@@ -1,2 +1,3 @@
 (function_item
-  name: (identifier) @function_name) @function_def
+  name: (identifier) @function_name
+  parameters: (parameters) @function_parameters) @function_def

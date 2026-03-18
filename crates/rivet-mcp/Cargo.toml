@@ -12,8 +12,27 @@ categories = ["development-tools"]
 
 [dependencies]
 anyhow.workspace = true
+rmcp = { version = "1.2.0", features = [
+  "client",
+  "server",
+  "macros",
+  "schemars",
+  "transport-io",
+  "transport-async-rw",
+] }
+schemars = "1.2.1"
+serde.workspace = true
 serde_json.workspace = true
-rivet-core = { path = "../rivet-core" }
+tokio = { version = "1.49.0", features = [
+  "fs",
+  "io-std",
+  "io-util",
+  "macros",
+  "rt",
+  "sync",
+] }
+rivet-core = { path = "../rivet-core", features = ["plugins"] }
+rivet-runtime = { path = "../rivet-runtime" }
 
 [lib]
 name = "rivet_mcp"

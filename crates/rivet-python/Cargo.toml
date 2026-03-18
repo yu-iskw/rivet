@@ -12,10 +12,20 @@ categories = ["development-tools"]
 
 [dependencies]
 rivet-core = { path = "../rivet-core" }
+rivet-runtime = { path = "../rivet-runtime" }
+pyo3.workspace = true
+
+[build-dependencies]
+pyo3-build-config.workspace = true
+
+[features]
+default = []
+python-module = ["pyo3/extension-module"]
 
 [lib]
-name = "rivet_python"
+name = "rivet_rs"
 path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
 
 [lints]
 workspace = true

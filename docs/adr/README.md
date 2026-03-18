@@ -5,3 +5,4 @@
 - [3. WASM-based Plugin System via Extism](0003-wasm-based-plugin-system-via-extism.md)
 - [4. Pure-Rust Core with IO-owning Consumers](0004-pure-rust-core-with-io-owning-consumers.md)
 - [5. Query-based Language Behavior Definition](0005-query-based-language-behavior-definition.md)
+- [6. Plugin Runtime Release Gated Pending Upstream Remediation](0006-plugin-runtime-release-gated-pending-upstream-remediation.md)

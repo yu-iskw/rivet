@@ -12,7 +12,28 @@ categories = ["development-tools"]
 
 [dependencies]
 anyhow.workspace = true
-rivet-core = { path = "../rivet-core" }
+dashmap = "6.1.0"
+futures = "0.3.31"
+serde.workspace = true
+serde_json.workspace = true
+tokio = { version = "1.48.0", features = [
+  "io-std",
+  "macros",
+  "rt",
+  "sync",
+  "time",
+] }
+tower-lsp-server = "0.23.0"
+rivet-core = { path = "../rivet-core", features = ["plugins"] }
+rivet-runtime = { path = "../rivet-runtime" }
+
+[dev-dependencies]
+criterion = "0.5.1"
+tower = "0.5.2"
+
+[[bench]]
+name = "cached_reads"
+harness = false
 
 [lib]
 name = "rivet_lsp"

@@ -1,0 +1,25 @@
+{
+  "name": "@rivet-rs/node",
+  "version": "0.1.0",
+  "description": "Node.js bindings for Rivet.",
+  "license": "Apache-2.0",
+  "main": "./index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js",
+      "require": "./index.js"
+    }
+  },
+  "files": [
+    "index.d.ts",
+    "index.js",
+    "rivet_node.*.node"
+  ],
+  "scripts": {
+    "build": "cargo build -p rivet-node --release && node ./build-package.mjs",
+    "test": "cargo test -p rivet-node --all-features",
+    "validate:package": "node ../../tests/node/package.test.mjs"
+  }
+}

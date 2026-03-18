@@ -9,10 +9,14 @@ pub mod plugin;
 pub mod types;
 
 pub use analyzer::Analyzer;
-pub use config::AnalyzerConfig;
+pub use config::{AnalyzerConfig, PathThresholdOverride, PluginConfig, PluginEntryConfig};
 pub use error::RivetError;
-pub use language::{Language, LanguageConfig, LanguageRegistry};
+pub use language::{
+    Language, LanguageConfig, LanguageDescriptor, LanguageRegistry, LanguageSource,
+    LanguageSupportLevel, analysis_fingerprint,
+};
 pub use types::{
-    FileAnalysis, FileInput, FileMetrics, FunctionAnalysis, HalsteadMetrics, ParseError,
-    ProjectAnalysis, ProjectSummary, Severity, ThresholdResult, ThresholdViolation, Thresholds,
+    FileAnalysis, FileInput, FileMetrics, FunctionAnalysis, HalsteadMetrics, LanguageSummary,
+    MetricValue, ParseError, PluginDiagnostic, ProjectAnalysis, ProjectSummary, Severity,
+    ThresholdResult, ThresholdViolation, Thresholds,
 };

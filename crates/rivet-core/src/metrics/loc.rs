@@ -30,6 +30,7 @@ pub fn compute_file_metrics(source: &[u8], comment_prefixes: &[&str]) -> FileMet
         max_complexity: 0.0,
         maintainability_index: 0.0,
         halstead: HalsteadMetrics::default(),
+        custom_metrics: std::collections::HashMap::new(),
     }
 }
 

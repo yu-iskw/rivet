@@ -1,0 +1,1334 @@
+---
+source: crates/rivet-core/src/output/mod.rs
+assertion_line: 299
+expression: sarif
+---
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/c/simple.c"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/c/simple.c"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/c/simple.c"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/c/simple.c"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/c/simple.c"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/cpp/simple.cpp"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/cpp/simple.cpp"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/cpp/simple.cpp"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/cpp/simple.cpp"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/cpp/simple.cpp"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/csharp/Simple.cs"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/csharp/Simple.cs"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/csharp/Simple.cs"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/csharp/Simple.cs"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/csharp/Simple.cs"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/go/simple.go"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/go/simple.go"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/go/simple.go"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/go/simple.go"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/go/simple.go"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/java/Simple.java"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/java/Simple.java"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/java/Simple.java"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/java/Simple.java"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/java/Simple.java"
+                },
+                "region": {
+                  "endColumn": 5,
+                  "endLine": 7,
+                  "startColumn": 4,
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/javascript/simple.js"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/javascript/simple.js"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/javascript/simple.js"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/javascript/simple.js"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/javascript/simple.js"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/kotlin/Simple.kt"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/kotlin/Simple.kt"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/kotlin/Simple.kt"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/kotlin/Simple.kt"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/kotlin/Simple.kt"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/php/simple.php"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/php/simple.php"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/php/simple.php"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/php/simple.php"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/php/simple.php"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 8,
+                  "startColumn": 0,
+                  "startLine": 3
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/python/simple.py"
+                },
+                "region": {
+                  "endColumn": 13,
+                  "endLine": 4,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/python/simple.py"
+                },
+                "region": {
+                  "endColumn": 13,
+                  "endLine": 4,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/python/simple.py"
+                },
+                "region": {
+                  "endColumn": 13,
+                  "endLine": 4,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=4, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/python/simple.py"
+                },
+                "region": {
+                  "endColumn": 13,
+                  "endLine": 4,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/ruby/simple.rb"
+                },
+                "region": {
+                  "endColumn": 3,
+                  "endLine": 7,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/ruby/simple.rb"
+                },
+                "region": {
+                  "endColumn": 3,
+                  "endLine": 7,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/ruby/simple.rb"
+                },
+                "region": {
+                  "endColumn": 3,
+                  "endLine": 7,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=7, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/ruby/simple.rb"
+                },
+                "region": {
+                  "endColumn": 3,
+                  "endLine": 7,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/ruby/simple.rb"
+                },
+                "region": {
+                  "endColumn": 3,
+                  "endLine": 7,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/rust/simple.rs"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 3,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/rust/simple.rs"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 3,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/rust/simple.rs"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 3,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/rust/simple.rs"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 3,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "absolute exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/typescript/simple.ts"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=3, threshold=1"
+          },
+          "ruleId": "cyclomatic_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/typescript/simple.ts"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "cognitive_complexity"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/typescript/simple.ts"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=6, threshold=1"
+          },
+          "ruleId": "function_length"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/typescript/simple.ts"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=2, threshold=1"
+          },
+          "ruleId": "parameter_count"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/fixtures/typescript/simple.ts"
+                },
+                "region": {
+                  "endColumn": 1,
+                  "endLine": 6,
+                  "startColumn": 0,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "sample exceeded threshold: actual=1, threshold=0"
+          },
+          "ruleId": "nesting_depth"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "rivet",
+          "rules": [
+            {
+              "id": "cognitive_complexity",
+              "name": "cognitive_complexity",
+              "shortDescription": {
+                "text": "Threshold exceeded for cognitive_complexity"
+              }
+            },
+            {
+              "id": "cyclomatic_complexity",
+              "name": "cyclomatic_complexity",
+              "shortDescription": {
+                "text": "Threshold exceeded for cyclomatic_complexity"
+              }
+            },
+            {
+              "id": "function_length",
+              "name": "function_length",
+              "shortDescription": {
+                "text": "Threshold exceeded for function_length"
+              }
+            },
+            {
+              "id": "nesting_depth",
+              "name": "nesting_depth",
+              "shortDescription": {
+                "text": "Threshold exceeded for nesting_depth"
+              }
+            },
+            {
+              "id": "parameter_count",
+              "name": "parameter_count",
+              "shortDescription": {
+                "text": "Threshold exceeded for parameter_count"
+              }
+            }
+          ],
+          "version": "0.1.0"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

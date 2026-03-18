@@ -35,8 +35,8 @@ surfaces that can be expanded over time.
 - `crates/rivet-cli`: command line interface
 - `crates/rivet-mcp`: MCP integration surface
 - `crates/rivet-lsp`: LSP integration surface
-- `crates/rivet-python`: Python bindings scaffold
-- `crates/rivet-node`: Node bindings scaffold
+- `crates/rivet-python`: typed PyO3 bindings
+- `crates/rivet-node`: typed napi-rs bindings
 - `crates/rivet-plugin-sdk`: plugin authoring scaffold
 - `[workspace.dependencies]`: central place for shared dependency versions
 - `[workspace.lints.clippy]`: workspace-wide Clippy policy and AI guardrails
@@ -64,3 +64,7 @@ make codeql     # Run local CodeQL analysis
 
 The repository is being transformed from the workspace template into the Rivet
 workspace described in [docs/core/system_design.md](./docs/core/system_design.md).
+
+- `lang-popular` now targets the 12-language product slice defined in the design doc.
+- Python and Node bindings expose typed analysis objects instead of JSON-string payloads.
+- The Extism-based plugin runtime remains available but is currently treated as experimental for release purposes while upstream security findings remain unresolved.

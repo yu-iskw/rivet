@@ -1,6 +1,6 @@
-(if_expression) @control_flow
-(else_clause) @control_flow
-(for_expression) @control_flow
-(while_expression) @control_flow
-(loop_expression) @control_flow
-(match_arm) @control_flow
+(if_expression) @cc_branch @cognitive_structural
+(for_expression) @cc_branch @cognitive_structural
+(while_expression) @cc_branch @cognitive_structural
+(loop_expression) @cc_branch @cognitive_structural
+(match_arm) @cc_branch @cognitive_structural
+(binary_expression operator: ["&&" "||"]) @cc_fundamental @cognitive_fundamental
