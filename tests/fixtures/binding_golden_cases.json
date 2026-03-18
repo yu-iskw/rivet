@@ -1,0 +1,158 @@
+[
+  {
+    "path": "tests/fixtures/c/simple.c",
+    "language": "c",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/cpp/simple.cpp",
+    "language": "cpp",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/csharp/Simple.cs",
+    "language": "csharp",
+    "function_name": "Sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/go/simple.go",
+    "language": "go",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/java/Simple.java",
+    "language": "java",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/javascript/simple.js",
+    "language": "javascript",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/kotlin/Simple.kt",
+    "language": "kotlin",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/php/simple.php",
+    "language": "php",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/python/simple.py",
+    "language": "python",
+    "function_name": "absolute",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 1,
+      "nloc": 4,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/ruby/simple.rb",
+    "language": "ruby",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 7,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/rust/simple.rs",
+    "language": "rust",
+    "function_name": "absolute",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 1,
+      "nloc": 2,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  },
+  {
+    "path": "tests/fixtures/typescript/simple.ts",
+    "language": "typescript",
+    "function_name": "sample",
+    "expected_metrics": {
+      "cyclomatic_complexity": 2,
+      "cognitive_complexity": 1,
+      "parameter_count": 2,
+      "nloc": 6,
+      "nesting_depth": 1,
+      "total_complexity": 2.0
+    }
+  }
+]

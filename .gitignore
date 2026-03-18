@@ -4,6 +4,8 @@ dist/
 site/
 .direnv/
 .env
+.rivet/
+.tmp/
 
 # Claude Code local configurations
 .claude/settings.local.json

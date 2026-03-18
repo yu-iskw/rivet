@@ -1,0 +1,85 @@
+name: Complexity SARIF
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/complexity-sarif.yml
+      - .github/workflows/test.yml
+      - Cargo.toml
+      - Cargo.lock
+      - queries/**
+      - crates/**
+      - tests/**
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  complexity-sarif:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install SARIF validator
+        run: python -m pip install check-jsonschema
+
+      - name: Generate complexity SARIF
+        run: >
+          cargo run -p rivet-cli -- check tests/fixtures
+          --format sarif
+          --output rivet-complexity.sarif
+          --max-cc 1
+          --max-cognitive 0
+          --max-params 1
+          --max-length 1
+          --max-nesting 0
+          --warning-only
+
+      - name: Validate SARIF against schema
+        run: >
+          check-jsonschema
+          --schemafile https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json
+          rivet-complexity.sarif
+
+      - name: Assert SARIF is non-empty and contains findings
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          sarif_path = Path("rivet-complexity.sarif")
+          assert sarif_path.exists(), "expected rivet-complexity.sarif to exist"
+          assert sarif_path.stat().st_size > 0, "generated SARIF file is empty"
+
+          sarif = json.loads(sarif_path.read_text())
+          runs = sarif.get("runs", [])
+          assert runs, "expected at least one SARIF run"
+          results = runs[0].get("results", [])
+          assert results, "expected SARIF results to be non-empty"
+          PY
+
+      - name: Upload SARIF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rivet-complexity-sarif
+          path: rivet-complexity.sarif
+
+      - name: Upload SARIF to code scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: rivet-complexity.sarif

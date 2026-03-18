@@ -3,13 +3,20 @@ name: Rust Validation
 on:
   pull_request:
     paths:
+      - .github/workflows/performance.yml
       - .github/workflows/test.yml
+      - deny.toml
       - Cargo.toml
       - Cargo.lock
       - clippy.toml
+      - benchmarks/**
+      - docs/core/performance.md
+      - crates/rivet-lsp/benches/**
+      - queries/**
       - rustfmt.toml
       - crates/**
       - dev/**
+      - tests/**
   push:
     branches:
       - main
@@ -35,4 +42,165 @@ jobs:
         run: cargo clippy --workspace --all-targets --all-features -- -D warnings
 
       - name: Run tests
-        run: cargo test --workspace --all-features
+        run: cargo test --workspace --all-features --lib --bins --tests --exclude rivet-plugin-sdk
+
+      - name: Run plugin SDK library tests
+        run: cargo test -p rivet-plugin-sdk --all-features --lib --tests
+
+  cargo-deny:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-deny
+
+      - name: Run cargo-deny policy
+        run: cargo deny check --all-features --target x86_64-unknown-linux-gnu --target wasm32-unknown-unknown
+
+  mcp-protocol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run MCP protocol tests
+        run: cargo test -p rivet-mcp
+
+  lsp-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run LSP integration tests
+        run: cargo test -p rivet-lsp
+
+  performance-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Compile runtime benchmark harness
+        run: cargo bench -p rivet-runtime --bench cache_roundtrip --no-run
+
+      - name: Compile LSP benchmark harness
+        run: cargo bench -p rivet-lsp --bench cached_reads --no-run
+
+  python-bindings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Python build tooling
+        run: python -m pip install maturin pytest
+
+      - name: Build wheel distribution
+        run: mkdir -p dist/python && maturin build --release -m crates/rivet-python/Cargo.toml -o dist/python
+
+      - name: Validate Python wheel contents
+        run: |
+          python - <<'PY'
+          import zipfile
+          from pathlib import Path
+
+          wheels = sorted(Path("dist/python").glob("*.whl"))
+          assert wheels, "expected at least one built wheel"
+          with zipfile.ZipFile(wheels[0]) as wheel:
+              names = wheel.namelist()
+          assert any(name.endswith((".so", ".pyd", ".dylib")) for name in names), names
+          assert any(name.endswith(".dist-info/METADATA") for name in names), names
+          assert any(name.endswith(".dist-info/WHEEL") for name in names), names
+          assert any(name.endswith("rivet_rs.pyi") for name in names), names
+          assert any(name.endswith("py.typed") for name in names), names
+          assert any("rivet_rs" in name for name in names), names
+          PY
+
+      - name: Build and install Python extension
+        run: maturin develop --release -m crates/rivet-python/Cargo.toml
+
+      - name: Run Python binding tests
+        run: pytest tests/python
+
+  node-bindings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run Node binding Rust tests
+        run: cargo test -p rivet-node --all-features
+
+      - name: Build Node package runtime artifact
+        run: npm run build
+        working-directory: crates/rivet-node
+
+      - name: Run Node runtime smoke test
+        run: node ../../tests/node/runtime.test.mjs
+        working-directory: crates/rivet-node
+
+      - name: Validate Node package surface
+        run: npm run validate:package
+        working-directory: crates/rivet-node
+
+      - name: Validate npm package metadata
+        run: npm pack --dry-run
+        working-directory: crates/rivet-node
+
+  plugin-wasm-example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install stable toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build example plugin
+        run: cargo build -p rivet-plugin-sdk --example function_name_length --target wasm32-unknown-unknown

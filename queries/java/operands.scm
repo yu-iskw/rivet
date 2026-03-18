@@ -1,0 +1,9 @@
+(identifier) @operand
+(decimal_integer_literal) @operand
+(hex_integer_literal) @operand
+(decimal_floating_point_literal) @operand
+(string_literal) @operand
+(character_literal) @operand
+(true) @operand
+(false) @operand
+(null_literal) @operand

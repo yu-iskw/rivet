@@ -1,0 +1,9 @@
+(identifier) @operand
+(int_literal) @operand
+(float_literal) @operand
+(interpreted_string_literal) @operand
+(raw_string_literal) @operand
+(rune_literal) @operand
+(true) @operand
+(false) @operand
+(nil) @operand

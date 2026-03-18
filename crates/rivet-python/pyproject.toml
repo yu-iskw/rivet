@@ -1,0 +1,21 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "rivet-rs"
+version = "0.1.0"
+description = "Python bindings for Rivet."
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Rust",
+]
+
+[tool.maturin]
+features = ["python-module"]
+module-name = "rivet_rs"
+include = ["rivet_rs.pyi", "py.typed"]
